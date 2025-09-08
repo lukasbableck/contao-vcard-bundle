@@ -1,0 +1,3 @@
+Lukasbableck\ContaoVcardBundle\Controller\:
+    resource: ../src/Controller
+    type: attribute

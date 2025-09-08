@@ -1,0 +1,32 @@
+<?php
+namespace Lukasbableck\ContaoVcardBundle\Controller;
+
+use Contao\CoreBundle\Exception\PageNotFoundException;
+use Contao\CoreBundle\Framework\ContaoFramework;
+use Lukasbableck\ContaoVcardBundle\Helper\VcardHelper;
+use Lukasbableck\ContaoVcardBundle\Model\VcardModel;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
+#[Route('/_contao/vcard/{idOrAlias}', name: 'contao_vcard', methods: ['GET'])]
+class VcardController extends AbstractController {
+	public function __construct(private readonly ContaoFramework $contaoFramework) {
+	}
+
+	public function __invoke(int|string $idOrAlias): Response {
+		$this->contaoFramework->initialize();
+		$vcard = VcardModel::findByIdOrAlias($idOrAlias);
+		if (!$vcard) {
+			throw new PageNotFoundException('VCard not found');
+		}
+
+		$vcardData = VcardHelper::generateVcard($vcard, $this->generateUrl('contao_vcard', ['idOrAlias' => $vcard->id], UrlGeneratorInterface::ABSOLUTE_URL));
+
+		return new Response($vcardData, 200, [
+			'Content-Type' => 'text/vcard; charset=utf-8',
+			'Content-Disposition' => 'attachment; filename="'.$vcard->getFormattedName().'.vcf"',
+		]);
+	}
+}
