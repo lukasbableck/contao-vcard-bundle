@@ -21,7 +21,13 @@
         "php": "^8.1",
         "contao/core-bundle": "^5.3",
         "mvo/contao-group-widget": "^1.5",
-        "sabre/vobject": "^4.5"
+        "ext-fileinfo": "*",
+        "symfony/config": "^6.4 || ^7.3",
+        "symfony/dependency-injection": "^6.4 || ^7.3",
+        "symfony/framework-bundle": "^6.4 || ^7.3",
+        "symfony/http-foundation": "^6.4 || ^7.3",
+        "symfony/http-kernel": "^6.4 || ^7.3",
+        "symfony/routing": "^6.4 || ^7.3"
     },
 	"conflict": {
 		"contao/manager-plugin": "<2.0 || >=3.0"
