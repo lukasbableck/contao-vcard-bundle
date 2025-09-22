@@ -36,6 +36,7 @@ class VcardLabelCallbackListener {
         if ('edit' !== Input::get('act')) {
             return;
         }
+        
         Message::addInfo(\sprintf(
             '%s: %s',
             $this->translator->trans('tl_vcard.hintEdit', [], 'contao_tl_vcard'),
