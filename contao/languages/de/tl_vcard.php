@@ -46,6 +46,7 @@ $GLOBALS['TL_LANG']['tl_vcard']['professional_legend'] = 'Berufliche Angaben';
 $GLOBALS['TL_LANG']['tl_vcard']['contact_legend'] = 'Kontaktinformationen';
 $GLOBALS['TL_LANG']['tl_vcard']['calendar_legend'] = 'Kalenderinformationen';
 $GLOBALS['TL_LANG']['tl_vcard']['notes_legend'] = 'Notizen';
+$GLOBALS['TL_LANG']['tl_vcard']['hintEdit'] = 'vCard URL';
 
 $GLOBALS['TL_LANG']['tl_vcard']['kind_options'] = [
     'individual' => 'Person',

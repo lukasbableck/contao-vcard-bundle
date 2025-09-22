@@ -46,6 +46,7 @@ $GLOBALS['TL_LANG']['tl_vcard']['professional_legend'] = 'Professional informati
 $GLOBALS['TL_LANG']['tl_vcard']['contact_legend'] = 'Contact information';
 $GLOBALS['TL_LANG']['tl_vcard']['calendar_legend'] = 'Calendar information';
 $GLOBALS['TL_LANG']['tl_vcard']['notes_legend'] = 'Notes';
+$GLOBALS['TL_LANG']['tl_vcard']['hintEdit'] = 'vCard url';
 
 $GLOBALS['TL_LANG']['tl_vcard']['kind_options'] = [
     'individual' => 'Individual',
