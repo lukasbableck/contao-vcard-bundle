@@ -9,7 +9,7 @@ use Lukasbableck\ContaoVcardBundle\Model\VcardModel;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class VcardLabelCallbackListener {
+class VcardCallbackListener {
     public function __construct(
         private readonly TranslatorInterface $translator,
         private readonly RequestStack $requestStack,
@@ -36,7 +36,7 @@ class VcardLabelCallbackListener {
         if ('edit' !== Input::get('act')) {
             return;
         }
-        
+
         Message::addInfo(\sprintf(
             '%s: %s',
             $this->translator->trans('tl_vcard.hintEdit', [], 'contao_tl_vcard'),
